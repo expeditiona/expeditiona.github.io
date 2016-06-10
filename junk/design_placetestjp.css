@@ -1,0 +1,48 @@
+body {
+    background-color:#438496;
+}
+
+#locbtn {
+    width:50%;
+    height:20%;
+}
+
+#origin {
+    width:40%;
+    display:inline-block;
+}
+
+#radius {
+    width:40%;
+    display:inline-block;
+
+}
+
+#typedrop {
+    display:inline-block;
+}
+
+#FindPlaces {
+    display:inline-block;
+}
+
+#amenities {
+    display:inline-block;
+}
+
+
+#FindPlaces {
+    display:inline-block;
+}
+
+
+#map {
+    float:left;
+    background-color:#286DA8;
+}
+
+
+#placeList {
+    float:right;
+    background-color:#286DA8;
+}

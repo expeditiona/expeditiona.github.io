@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="design.css">
+    <title>Place searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 50%;
+        width: 50%;
+      }
+    </style>
+    <script src="placetest.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7OXa-HwyjlSJKa89x0yyXbxSn1EfTCEQ&signed_in=true&libraries=places&callback=initMap" async defer></script>
+  </head>
+  <body>
+
+    <div id="heading">
+    ExpeditioNA
+    </div>
+
+    <input type="text" id="origin" /><br />
+    <label for="origin">Origin</label><br /><br />
+    <input type="text" id="radius" /><br />
+    <label for="origin">Minimum Proximity (miles)</label><br /><br />
+    <button type="button" id="btn1">Find Restaurants</button>
+    
+    <table style='width: 100%'>
+      <tr>
+        <td style='width:50%'> <div id="map"></div> </td>
+
+        <td style='width:50%'> <div id="placeList"></div> </td>
+      </tr>
+    </table>
+  </body>
+</html>

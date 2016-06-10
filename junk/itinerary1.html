@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+  <title>ExpeditioNA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="ctePics/lightbulbfav.ico" type="image/x-icon">
+  <link rel="icon" href="ctePics/lightbulbfav.ico" type="image/x-icon">
+  <link rel="stylesheet" href="homepage_looks.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+  <link rel="stylesheet" href="animate.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!--<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
+  <script src="homepage_slide.js"></script>
+
+<style>
+    html, body {
+        background-color:#ffd3d9;
+    }
+</style>
+
+<!--Scrolling-->
+<body>
+<div id="header">
+	<h1>
+    <a href='homepage5.html'>
+        <span class="expeditio">Expeditio</span>
+        <span class="NA">NA</span>
+    </a>
+    </h1>
+</div>
+
+<!-- links to other pages -->
+<div id="selection">
+    <br>
+	<ul>
+        <a href="routeplanner1.html"><li> Route Planner</li></a> 
+		<a href="travelstops1.html"><li> Travel Stops </li></a> 
+		<a><li id="currentpage">Itinerary</li></a>
+		<a href="aboutus1.html"><li> About Us</li></a>
+	</ul>
+</div>
+
+<!-- email and help icons -->
+<div class='mail'>
+<a href="mailto:joedralin@ctemc.org"><img src="mail.png" style="height:35px; width:50px; position:fixed; right:10px; top:17.5px; z-index:10" alt="Click me to email him." /></a>
+</div>
+<div class='ques'></div>
+
+<!-- script that adds items to list -->
+<script>
+$(document).ready(function(){
+    // button is disabled by default
+    $("#additem").fadeTo("fast",0.3);
+    document.getElementById("additem").disabled = true;
+
+    // detect new keystrokes, disable button if there's no text, enable button if there is
+    $("#newitem").on('input', function(){
+        if($('#newitem').val() === ""){
+            $("#additem").fadeTo("fast",0.3);
+            document.getElementById("additem").disabled = true;
+        } else {
+            $("#additem").fadeTo("fast", 1);
+            document.getElementById("additem").disabled = false;
+        }
+    });
+
+    // write the item in "newitem" when button is clicked
+    $("#additem").click(function(){
+        $("<tr><td>"+$("#newitem").val()+"</td></tr>").appendTo("#items");
+    });
+});
+</script>
+
+<!-- page text -->
+<div id="titleItinerary">
+    <h1>Plan Your Errands on Our Itinerary Feature!</h1>
+</div>
+
+<!-- table that holds input box, button, and list of items -->
+<table id="tableit">
+    <tr><td><input type="text" id="newitem" placeholder="Item (ex. toothbrush)" required/></td></tr>
+    <tr><td><button type="button" id="additem">Add Item to List</button></td></tr>
+    <tr>
+        <td>
+            <table id="listtable"></table>
+                <tr><td id="items"></td>
+        </td>
+    </tr>
+</table>
+
+</body>
+
+</html>

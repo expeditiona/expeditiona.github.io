@@ -1,0 +1,15 @@
+-Collage design determined by 3-dimensional array called "<number of images>_images"
+-Attempted to find a way to match each image to its best fit frame based on aspect ratio by sorting lots of arrays
+	-Idea was scrapped, instead sorted image_list by aspect ratio by modifying a simple bubble sort algorithm found on the web
+	-3-D design array elements rearranged so the lowest-aspect-ratio frames go first, making fitting job automatic
+-Implemented code to resize images to fit into frames while maintaining original image's aspect ratio
+-Implemented code creating new image file
+-Pasted images into new image file
+-Added designs for 1, 2, 3, and 5 images, as well as handling for 0 or >5 images
+-Added logo
+-Added rudimentary text formatting below collage
+-Added design for 6 images
+-Added text wrapping for caption, adjusting image size according to length of text
+-Removed logo and code involving it
+-Allowed text color to be customizable
+-Finalized comments

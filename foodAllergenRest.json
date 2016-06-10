@@ -1,0 +1,220 @@
+{
+  "restaurants": {
+    "mcdonalds": {
+      "name": "McDonald's"
+    },
+    "wendys": {
+      "name": "Wendy's"
+    },
+    "royrogers": {
+      "name": "Roy Roger's"
+    },
+    "burgerking": {
+      "name": "Burger King"
+    },
+    "applebees": {
+      "name": "Applebee's"
+    },
+    "fridays": {
+      "name": "TGI Friday's"
+    },
+    "pizzahut": {
+      "name": "Pizza Hut"
+    },
+    "redlobster": {
+      "name": "Red Lobster"
+    },
+    "auntieannes": {
+      "name": "Auntie Anne's"
+    },
+    "ihop": {
+      "name": "IHOP"
+    }
+  },
+
+  "foods": {
+    "mcdonalds": {
+      "frenchfries": {
+          "name": "French Fries",
+          "allergen1": "wheat"
+        },
+      "hamburger": {
+          "name": "Hamburger",
+          "allergen1": "wheat"
+        },
+      "fish": {
+          "name": "Filet-o-Fish",
+          "allergen1": "wheat", 
+          "allergen2": "dairy", 
+          "allergen3": "soy", 
+          "allergen4": "fish"
+        }
+    },
+    "wendys": {
+      "chicknuggets": {
+          "name": "Chicken Nuggets",
+          "allergen1": "wheat"
+        },
+      "bacon": {
+          "name": "Baconator",
+          "allergen1": "eggs",
+          "allergen2": "dairy",
+          "allergen3": "soy",
+          "allergen4": "wheat"
+        },
+      "frenchfries": {
+          "name": "French Fries",
+          "allergen1": "wheat"
+      }
+    },
+    "royrogers": {
+      "friedchicken": {
+          "name": "Fried Chicken",
+          "allergen1": "eggs",
+          "allergen2": "dairy",
+          "allergen3": "soy",
+          "allergen4": "wheat"
+        },
+      "frenchfries": {
+          "name": "French Fries",
+          "allergen1": "none"
+        },
+      "hamburger": {
+          "name": "Hamburger",
+          "allergen1": "wheat",
+          "allergen2": "soy"
+      }
+    },
+    "burgerking": {
+      "hamburger": {
+          "name": "Hamburger",
+          "allergen1": "wheat",
+          "allergen2": "soy"
+        },
+      "salad": {
+          "name": "Garden Salad",
+          "allergen1": "dairy"
+        },
+      "chicknuggets": {
+          "name": "Chicken Nuggets",
+          "allergen1": "wheat"
+      }
+    },
+    "applebees": {
+      "lemchicken": {
+          "name": "Cedar Grilled Lemon Chicken",
+          "allergen1": "wheat",
+          "allergen2": "nuts",
+          "allergen3": "gluten"
+        },
+      "shrimp": {
+          "name": "Double Crunch Shrimp",
+          "allergen1": "wheat",
+          "allergen2": "dairy",
+          "allergen3": "eggs",
+          "allergen4": "shellfish",
+          "allergen5": "gluten"
+        },
+      "garlicfries": {
+          "name": "Garlic Fries",
+          "allergen1": "soy",
+          "allergen2": "dairy"
+      }
+    },
+    "fridays": {
+      "brushrimpasta": {
+          "name": "Bruschetta Shrimp Pasta",
+          "allergen1": "dairy",
+          "allergen2": "soy",
+          "allergen3": "shrimp",
+          "allergen4": "shellfish"
+        },
+      "mashpotato": {
+          "name": "Mashed Potatoes",
+          "allergen1": "dairy",
+          "allergen2": "soy"
+        },
+      "spinflatbread": {
+          "name": "Spinach Florentine Flatbread",
+          "allergen1": "soy",
+          "allergen2": "dairy",
+          "allergen3": "wheat"
+      }
+    },
+    "pizzahut": {
+      "plainpizza": {
+          "name": "Plain Cheese Pizza",
+          "allergen1": "dairy",
+          "allergen2": "soy",
+          "allergen3": "wheat"
+        },
+      "alfredopasta": {
+          "name": "Chicken Alfredo Pasta",
+          "allergen1": "dairy",
+          "allergen2": "wheat"
+        },
+      "breadstick": {
+          "name": "Breadsticks",
+          "allergen1": "soy",
+          "allergen2": "dairy",
+          "allergen3": "wheat"
+      }
+    },
+    "redlobster": {
+      "fishnchips": {
+          "name": "Fish and Chips",
+          "allergen1": "wheat",
+          "allergen2": "gluten",
+          "allergen3": "fish"
+        },
+      "broiledfish": {
+          "name": "Broiled Fish",
+          "allergen1": "fish",
+          "allergen2": "soy"
+        },
+      "mashpotato": {
+          "name": "Mashed Potatoes",
+          "allergen1": "soy",
+          "allergen2": "dairy"
+      }
+    },
+    "auntieannes": {
+      "plainpretzel": {
+          "name": "Plain Pretzel",
+          "allergen1": "wheat",
+          "allergen2": "soy"
+        },
+      "pretzeldog": {
+          "name": "Pretzel Dog",
+          "allergen1": "dairy",
+          "allergen2": "soy",
+          "allergen3": "wheat"
+        },
+      "breakfastsandwich": {
+          "name": "Breakfast Sandwich",
+          "allergen1": "soy",
+          "allergen2": "dairy",
+          "allergen3": "wheat",
+          "allergen4": "eggs"
+      }
+    },
+    "ihop": {
+      "plainpancake": {
+          "name": "Plain Pancake",
+          "allergen1": "eggs",
+          "allergen2": "soy"
+        },
+      "chickspinsalad": {
+          "name": "Chicken/Spinach Salad",
+          "allergen1": "dairy",
+          "allergen2": "eggs",
+          "allergen3": "gluten"
+        },
+      "hashbrown": {
+          "name": "Hash Brown",
+          "allergen1": "soy"
+      }
+    }
+  }
+}
+

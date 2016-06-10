@@ -1,0 +1,62 @@
+html, body{ 
+	height: 100%; 
+	margin: 0; 
+	padding: 0;
+	background-color: WhiteSmoke;
+	font-family: "Trebuchet MS"
+}
+
+
+#map { 
+height: 100%; 
+width: 65%;
+}
+
+#heading {
+text-indent: 4.0em;
+background-color: deepskyblue;
+height:40px;
+width:100%;
+font-family: "Trebuchet MS";
+font-size: 30px;
+}
+
+#placeList {
+	font-size: 15px
+}
+
+#panel1 {
+	position: relative;
+	background-color: #add8e6;
+	width: 200px;
+	height: 200px;
+	padding-left: 100px;
+	padding-top: 100px;
+}
+
+#panel2 {
+	position: relative;
+	background-color: #add8e6;
+	width: 200px;
+	height: 200px;
+	padding-left: 1200px;
+	padding-top: 100px;
+}
+
+#panel3 {
+	position: relative;
+	background-color: #add8e6;
+	width: 200px;
+	height: 200px;
+	padding-left: 100px;
+	padding-top: 800px;
+}
+
+#panel4 {
+	position: relative;
+	background-color: #add8e6;
+	width: 200px;
+	height: 200px;
+	padding-left: 1200px;
+	padding-top: 800px;
+}

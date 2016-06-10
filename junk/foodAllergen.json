@@ -1,0 +1,21 @@
+{
+  "foods": {
+    "mcdonalds": {
+      "frenchfries": {
+          "name": "French Fries",
+          "allergen1": "wheat"
+        },
+      "hamburger": {
+          "name": "Hamburger",
+          "allergen1": "wheat"
+        },
+      "fish": {
+          "name": "Filet-o-Fish",
+          "allergen1": "wheat", 
+          "allergen2": "milk", 
+          "allergen3": "soy", 
+          "allergen4": "fish"
+        }
+    }
+  }
+}

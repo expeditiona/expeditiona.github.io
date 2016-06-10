@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ExpeditioNA</title>
+    <link rel="stylesheet" type="text/css" href="design1.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<!--Allows the div's to scroll-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("a").click(function(){
+	$('html, body').animate({
+             scrollTop: $( $(this).attr('href') ).offset().top
+         }, 800);
+	return false;
+    });
+});
+</script>
+
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" id="submenu" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse">CTE</button>
+      <button type="button" id="mainmenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Menu</button>
+      <a class="navbar-brand" href="landingpage321.htm"> ExpeditioNA <i class="fa fa-home"></i> </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="cte_march21.htm">Route Planner</a></li>
+        <li><a href="tsapage314.htm">Travel Stops</a></li>
+        <li><a href="uas322_3.htm">Itinerary</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span>About Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid" id="mainContainer">
+<div class="main" data-offset="15"> 
+
+  <div id="mainsection1">
+    
+    <div id="infoHTHS" class="animated fadeInLeft">
+      <h2 id="engineerTitle" class="animated lightSpeedIn">CAREER AND TECHNICAL EDUCATION</h2>
+      <!-- <hr class="style14"> -->
+      <br>
+      <p>
+        U.S. News & World Report named High Technology High School the #1 STEM school in the entire nation. Specializing in science, mathematics, engineering, and technology, High Tech offers a multitude of <a href="https://www.pltw.org/">Project Lead The Way</a> courses that will fully prepare its students for a bright future in any one of these specific fields. From freshman to senior, the curriculum always remains challenging, yet rewarding at the same time. 
+      </p>
+    </div> 
+
+  </div>
+
+  <div id="mainsection2">
+
+    <div id="infoFrosh" class="animated fadeInLeft">
+      <h2 id="engineerTitle" class="animated lightSpeedIn">A FRESH START</h2>
+      <hr class="style14" id="linee">
+      <br>
+      <p id="describeEngineer">
+        When you first walk into High Technology High School as an incoming freshman, you are immediately immersed in a purely engineering environment. With two unique engineering classes, being "Introduction to Engineering Design" and "Computer Integrated Manufacturing", students are given a myriad of opportunities to apply themselves in this field and <b>take off</b> on the journey of finding their inner engineer.</p>
+        <br/>
+      <div><a href="stack.htm" class="transition learnMoreButton">Learn More</a></div>
+    </div> 
+
+  </div>
+
+</div>
+</div>
+</body>
+</html>

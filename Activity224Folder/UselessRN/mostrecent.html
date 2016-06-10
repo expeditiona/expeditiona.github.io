@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel='stylesheet' type='text/css' href='224CSS.css' />
+
+<!--Drop Down Menu JavaScript code starts here.-->
+<script>
+function dropDown100() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Dropdown exits if clicked outside
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+<!--Drop Down Menu JavaScript code ends here.-->
+
+
+
+</head>
+
+<body>
+
+    <div id="full">
+        <button class="myButton">Add Assignment</button>
+        <div>
+            <h1 class="Title">GradeLock</h1>
+            <p class="descrip"><b><em>Your personal grade book</em></b></p>
+        </div>
+        <br>
+        <div class="dropdown">
+            <select onclick="dropDown100()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+                <option value="Select A Student">Select A Student</option>
+                <option value="Steve Harvey">Steve Harvey</option>
+                <option value="Calvin Hobbes">Calvin Hobbes</option>
+                <option value="Sharkeisha Jones">Sharkeisha Jones</option>
+                <option value="Steve Harvey">Michael Kors</option>
+                <option value="Kristy Porzingis">Kristy Porzingis</option>
+                <option value="Christina Bosh">Christina Bosh</option>
+                <option value="Shaniqua Martinez">Shaniqua Martinez</option>
+                <option value="Stephanie Curry">Stephanie Curry</option>
+                <option value="Andrea Drummond">Andrea Drummond</option>
+                <option value="Janelle Okafor">Janelle Okafor</option>
+            </div>
+            </select>
+
+            <select onclick="dropDown100()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+                <option value="Select An Assignment">Select An Assignment</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </div>
+            </select>
+        </div>
+
+            <input type="text" label="Enter a grade." id="tbox"></input>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+            <table id="grades">
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Grade Level</th>
+                    <th>Grade Average</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Placeholder</td>
+                    <td>Placeholder2</td>
+                    <td>Placeholder3</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Placeholder</td>
+                    <td>Placeholder2</td>
+                    <td>Placeholder3</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Placeholder</td>
+                    <td>Placeholder2</td>
+                    <td>Placeholder3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Placeholder</td>
+                    <td>Placeholder2</td>
+                    <td>Placeholder3</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Placeholder</td>
+                    <td>Placeholder2</td>
+                    <td>Placeholder3</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Placeholder</td>
+                    <td>Placeholder2</td>
+                    <td>Placeholder3</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Placeholder</td>
+                    <td>Placeholder2</td>
+                    <td>Placeholder3</td>
+                </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Placeholder</td>
+                        <td>Placeholder2</td>
+                        <td>Placeholder3</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Placeholder</td>
+                    <td>Placeholder2</td>
+                    <td>Placeholder3</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Placeholder</td>
+                    <td>Placeholder2</td>
+                    <td>Placeholder3</td>
+                </tr>
+            </table>
+    </div>
+</body>
+
+</html>
+

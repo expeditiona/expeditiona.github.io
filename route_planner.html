@@ -1,0 +1,166 @@
+<html>
+
+
+  <head>
+  	<!-- document setup and styling -->
+	<title>Route Planner</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="design1.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <!-- <link rel="stylesheet" href="homepage_looks.css"> -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+    <script src="index.js"></script>
+
+
+	<!-- JavaScript links -->
+	<script src="maptest.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+
+  </head>
+
+
+  <body style="width:100%; background-color:#D2FFD8">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="font-family:'Century Gothic'">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" id="submenu" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse">Route Planner</button>
+          <button type="button" id="mainmenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Menu</button>
+          <a class="navbar-brand" href="Home_Page.htm">ExpeditioNA <i class="fa fa-home"></i> </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="Route_Planner.html">Route Planner</a></li>
+            <li><a href="POI_and_Allergen_Info.htm">POI and Allergen Info</a></li>
+            <li><a href="Checklist.html">Checklist</a></li>
+            <li><a href="About_Us.html">About Us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li id="help"><a href = "#" data-toggle="modal" data-target="#myModal"><i class="fa fa-question-circle"></i> Help</a></li>
+            <li id="contact"><a href = "#" data-toggle="modal" data-target="#myModalContact"><i class="fa fa-envelope-o"></i> Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="drawer" class="col-sm-3">
+
+        <!-- Title of Screen -->
+        <div id="titleRoutePlanner">
+            <label for="origin1" class="labelInText">Origin</label>
+            <input type="text" id="origin1" class="inputs" placeholder="Ex. 141 Aberdeen Rd Aberdeen, NJ">
+            <br>
+            <br>
+            <label for="dest1" class="labelInText">Destination</label>
+            <input type="text" id="dest1" class="inputs" placeholder="Ex. 1 Infinite Loop Cupertino, CA">
+            <br>
+            <br>
+            <button type="button" id="btn1"><span class="fa fa-compass"></span> Create Route</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" id="btn2"><span class="fa fa-file-pdf-o"></span> Export to PDF</button>
+    	  </div>
+        <hr style="border-top: 4px solid red;">
+
+<!--         <div id="duration"></div>
+        <div id="distance"></div> -->
+        <h2 style="margin-left:30%"><strong>Directions:</strong></h2>
+        <div id="direction" style="overflow-y:scroll; height:60%;padding-top:20px">
+          <ol id="directionList"></ol>
+        </div>
+        <div id="editor"></div>
+
+    </div>
+
+
+	<!-- div to hold the map -->
+	<div id="mapRest" class="col-sm-9"></div>  
+   
+
+     <!-- Information Modal -->
+      <div class="modal fade" id="myModal" role="dialog" style="margin-top:2%">
+        <div class="modal-dialog modal-lg" id="bScreenModal">
+        
+          <!-- Modal Course Description content-->
+          <div class="modal-content" id="infoItin">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" id="bModalTitle" style="text-align:center">Welcome to our RoutePlanner service!&nbsp;&nbsp;<i class="fa fa-car" aria-hidden="true"></i></h2>
+            </div>
+
+            <div class="modal-body" id="bModalText">
+
+              <p style="font-size:22px"><strong>ATTENTION: In order to operate our service, you must first install this Chrome extension <a href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en-US','_blank" target="_blank">here</a>.</strong></p>
+              <br>
+
+              <p>With our route planning service, directions will never be a problem again. The procedure is extremely simple. All you need to do is:
+              <br>
+              <br>
+                <ol>
+                  <li>Enter the <strong>starting point</strong> of your journey in the 1st input field.</li>
+                  <br>
+                  <li>Enter the address or name of your <strong>destination</strong> in the 2nd input field.</li>
+                  <br>
+                  <li>Hit the <strong>"Create Route"</strong> button and watch the magic happen!</li>
+                  <br>
+                  <li>If you want a physical copy of directions, just hit the <strong>"Export to PDF"</strong> button!</li>
+                </ol>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Contact Modal -->
+      <div class="modal fade" id="myModalContact" role="dialog" style="margin-top:2%">
+        <div class="modal-dialog modal-lg" id="bScreenModal">
+          <div class="modal-content" id="infoItin">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" id="bModalTitle">Contact Us!&nbsp;<i class="fa fa-envelope-o"></i></i></h2>
+            </div>
+
+            <div class="modal-body" id="bModalText">
+
+              <p style="text-align:center">Tell us what you think about the website! Click one of our <strong>icons</strong> to send us an email!</p><br>
+
+              <div id="ic">
+                  <!--Icons for each collaborator and mail to each collaborator-->
+                  <div id="ic1">
+                    <a class="maillink"  href="mailto:joatienza@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;&nbsp;<i class="fa fa-cutlery fa-5x" id="contactIcon1"></i></a>
+                    
+                    </br>
+                    <h4 id="contactName">Josh Atienza</h4>
+                  </div>
+
+
+                  <div id="ic2">
+                    <a class="maillink"  href="mailto:kylee@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;<i class="fa fa-trash fa-5x" id="contactIcon2"></i></a>
+                    </br>
+                    <h4 id="contactName">Kyle Lee</h4>
+                  </div>
+
+                  <div id="ic3">
+                    <a class="maillink"  href="mailto:owzhang@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-map-marker fa-5x" id="contactIcon3"></i></a>
+                  </br><h4 id="contactname">Owen Zhang</h4>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+
+	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+	<script>
+
+	function restFind() {
+		var myFirebaseRef = new Firebase("https://crackling-inferno-9505.firebaseio.com/restaurants");
+
+		myFirebaseRef.on("child_added", function(snapshot, prevChildKey) {
+			var newPost = snapshot.val();
+			console.log("Name: " + newPost.name);
+				alert(newPost.name);
+			});
+	}
+
+	function allergenFind() {
+		var myFirebaseRefAllergen = new Firebase("https://crackling-inferno-9505.firebaseio.com/foods/applebees");
+
+		myFirebaseRefAllergen.on("child_added", function(snapshot, prevChildKey) {
+			var allergen = snapshot.val();
+			console.log("Name: " + allergen.name);
+				alert(allergen.name);
+			});
+	}
+
+
+	</script>
+
+<body>
+	<p>Click the button to see the entire list of restaurants. Check with the console.</p>
+	<button type="button" onclick="restFind()">Click</button>
+	<button type="button" onclick="allergenFind()">Click</button>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>POI and Allergen Info</title>
+  <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7OXa-HwyjlSJKa89x0yyXbxSn1EfTCEQ&libraries=places"></script>
+	<script src="placetest.js"></script>
+	<script src="allergeninfo.js"></script>
+	<link rel="stylesheet" href="design1.css">
+
+<body style="background-color:#6666ff; overflow-x:hidden">
+
+	<!-- Header -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" id="submenu" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse">Route Planner</button>
+          <button type="button" id="mainmenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Menu</button>
+          <a class="navbar-brand" href="Home_Page.htm"> ExpeditioNA <i class="fa fa-home"></i> </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="Route_Planner.html">Route Planner</a></li>
+            <li class="active"><a href="POI_and_Allergen_Info.htm">POI and Allergen Info</a></li>
+            <li><a href="Checklist.html">Checklist</a></li>
+            <li><a href="About_Us.html"></span>About Us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li id="help"><a href = "#"><i class="fa fa-question-circle"></i> Help</a></li>
+            <li id="contact"><a href = "#"><i class="fa fa-envelope-o"></i> Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Modified Bootstrap code allows for easy resizing -->
+    <!-- <div class="container" style="margin-top:80px"> -->
+
+	    <!-- Sets buttons and input boxes for user -->
+	    <div id="locbtn" style="margin-left:3%">
+	        <input type="text" id="origin" class="inputs" placeholder="Origin" required />
+	        <input type="text" id="radius" class="inputs" placeholder="Search radius (miles)" required/>
+	        <select name="typedrop" class = "inputs" id="typedrop">
+	          <option value="airport">Airports</option>
+	          <option value="atm">ATM</option>
+	          <option value="food">Food</option>
+	          <option value="gas_station">Gas stations</option>
+	          <option value="grocery_or_supermarket">Groceries or Supermarkets</option>
+	          <option value="hospital">Hospitals</option>
+	          <option value="lodging">Lodging</option>
+	          <option value="parking">Parking</option>
+	          <option value="restaurant">Restaurants</option>
+	          <option value="stores">Stores</option>
+	        </select>
+	        <button type="button" id="FindPlaces"><span class="fa fa-map-marker"></span> Find Places</button>
+	        <button type="button" id="allergenModal"><span class="fa fa-cutlery"></span> Allergen Info</button>
+	    </div>
+	    </br>
+	    
+	    <!-- Sets map to the right side, using GoogleMaps API -->
+	    <div id="mapInterest" class="col-sm-9"></div>
+
+	    <!-- Includes the travel stops located by the GMaps API, this is an array -->
+
+      <div id="drawer2" class="col-sm-3">
+
+          <h2 style="text-align:center"><strong>Points of Interest:</strong></h2>
+          <div id="placeList" style="overflow-y: scroll;">
+            <ol id="placeListOl"></ol>
+          </div>
+      </div>
+
+      <!-- Allergen Modal -->
+      <div class="modal fade" id="myAllergenModal" role="dialog">
+        <div class="modal-dialog modal-lg" id="bScreenModal">
+        
+          <!-- Modal Allergen Info content-->
+          <div class="modal-content" id="infoItin">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" id="bModalTitle">Welcome to our Allergy Service!&nbsp;<i class="fa fa-cutlery" aria-hidden="true"></i></h2>
+            </div>
+
+            <!-- Dropdown listing restaurant names-->
+            <div class="modal-body" id="bModalText">Select a restaurant:
+      				<select id="storepicker" name="storepicker">
+      				  <option value="applebees" label="Applebee's">Applebee's</option>
+      				  <option value="auntieannes" label="Auntie Anne's">Auntie Anne's</option>
+      				  <option value="burgerking" label="Burger King">Burger King</option>
+      				  <option value="fridays" label="Fridays">Fridays</option>
+      				  <option value="ihop" label="IHOP">IHOP</option>
+      				  <option value="mcdonalds" label="McDonald's">McDonald's</option>
+      				  <option value="pizzahut" label="Pizza Hut">Pizza Hut</option>
+      				  <option value="redlobster" label="Red Lobster">Red Lobster</option>
+      				  <option value="royrogers" label="Roy Rogers">Roy Rogers</option>
+      				  <option value="wendys" label="Wendy's">Wendy's</option>
+      				</select>
+				
+    			  	<!-- Checkboxes listing possible allergens -->
+    			  	<form action=""></br>Choose the allergens you want to avoid:</br>
+      					<input type="checkbox" name="allergencheck" value="wheat" >Wheat<br>
+      					<input type="checkbox" name="allergencheck" value="soy" >Soy<br>
+      					<input type="checkbox" name="allergencheck" value="eggs" >Eggs<br>
+      					<input type="checkbox" name="allergencheck" value="gluten" >Gluten<br>
+      					<input type="checkbox" name="allergencheck" value="shrimp" >Shrimp<br>
+      					<input type="checkbox" name="allergencheck" value="shellfish" >Shellfish <br>
+      					<input type="checkbox" name="allergencheck" value="fish" >Fish<br>
+      					<input type="checkbox" name="allergencheck" value="nuts" >Nuts <br>
+      					<input type="checkbox" name="allergencheck" value="dairy" >Dairy <br>
+    				  </form>
+
+        			<!-- When button clicked, function is called-->
+        			<button type="button" onclick="allergenfinder()">Find Foods</button>
+
+      				<!-- Safe/Unsafe foods displayed-->
+      				<p><strong></br>Foods you can eat:</strong></p>
+      				<div id="outputgood" style="color:green"></div>
+      				<br>
+      				<p><strong>Foods you cannot eat:</strong></p>
+      				<div id="outputbad"style="color:red"></div>
+      				<br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Information Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg" id="bScreenModal">
+          <div class="modal-content" id="infoItin">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" id="bModalTitle">Welcome to our Places of Interest and Allergen service!&nbsp;<i class="fa fa-map-o" aria-hidden="true"></i></h2>
+            </div>
+
+            <div class="modal-body" id="bModalText">
+              <p> Once you've arrived at your vacation destination, you can find restaurants, hotels, and more around your area by following these easy steps:
+                <ol></br>
+                  <li> Enter your <strong>location</strong> in the <strong>origin</strong> box.</li></br>
+                  <li>Enter your <strong>search radius</strong> (in miles) in the radius box.</li></br>
+                  <li>Select your desired <strong>place of interest</strong>.</li></br>
+                  <li>Click the <strong>Find Places</strong> button, and the results will be displayed in a list and map below!</li>
+                </ol>
+              </p></br></br>
+
+              <p> Here at ExpeditioNA, we understand that it can be difficult to accommodate for food allergies on the road. If you or a fellow traveler has a food allergy, here's how to use our food allergy feature:
+
+                <ol></br>
+                  <li>Click on the <strong>Allergen Info</strong> button.  A box will pop up on the screen.</li></br>
+                  <li>Select a <strong>restaurant</strong>.</li></br>
+                  <li>Select the <strong>allergens</strong> that you wish to avoid. </li></br>
+                  <li>Click the <strong>Find Foods</strong> button, and we will tell you what foods you can or cannot eat!</li>
+                </ol>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Modal -->
+      <div class="modal fade" id="myModalContact" role="dialog">
+        <div class="modal-dialog modal-lg" id="bScreenModal">
+          <div class="modal-content" id="infoItin">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" id="bModalTitle">Contact Us!&nbsp;<i class="fa fa-envelope-o"></i></i></h2>
+            </div>
+
+            <div class="modal-body" id="bModalText">
+
+              <p style="text-align:center">Tell us what you think about the website! Click one of our <strong>icons</strong> to send us an email!</p><br>
+
+              <div id="ic">
+                  <!--Icons for each collaborator and mail to each collaborator-->
+                  <div id="ic1">
+                    <a class="maillink"  href="mailto:joatienza@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;&nbsp;<i class="fa fa-cutlery fa-5x" id="contactIcon1"></i></a>
+                    
+                    </br>
+                    <h4 id="contactName">Josh Atienza</h4>
+                  </div>
+
+
+                  <div id="ic2">
+                    <a class="maillink"  href="mailto:joedralin@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;<i class="fa fa-trash fa-5x" id="contactIcon2"></i></a>
+                    </br>
+                    <h4 id="contactName">JP Edralin</h4>
+                  </div>
+
+                  <div id="ic3">
+                    <a class="maillink"  href="mailto:owzhang@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-map-marker fa-5x" id="contactIcon3"></i></a>
+                  </br><h4 id="contactname">Owen Zhang</h4>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="index.js"></script>
+
+</body>
+
+
+
+</html>

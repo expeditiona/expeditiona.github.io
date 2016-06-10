@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- document setup and CSS -->
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="homepage_looks.css"> -->
+    <link rel="stylesheet" type="text/css" href="design1.css">
+    
+    <style>
+
+    #googlemaps { 
+        height: 100%; 
+        width: 100%; 
+        position:fixed; 
+        top: 5%; 
+        left: 0; 
+        z-index: 0; /* Set z-index to 0 as it will be on a layer below the information*/
+        opacity: 0.4; /*Makes the map slightly transparent*/
+        filter: alpha(opacity=40); /* For IE8 and earlier */
+    }
+
+    </style>
+
+    <!-- Include the Google Maps API library - required for embedding maps -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+ 
+    // The latitude and longitude of High Technology High School
+    var position = [40.324716 , -74.128610];
+ 
+    function showGoogleMaps() {
+        var latLng = new google.maps.LatLng(position[0], position[1]);
+        var mapOptions = {
+            zoom: 16, // initialize zoom level - the max value is 21
+            draggable: false, // fixes position of map
+            scrollwheel: false, // fixes map zoom level
+            disableDoubleClickZoom: true,
+            disableDefaultUI: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center: latLng
+        };
+        
+        // create new map object
+        map = new google.maps.Map(document.getElementById('googlemaps'),
+            mapOptions);
+ 
+        // Show the default red marker at the location
+        marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            draggable: false,
+            animation: google.maps.Animation.DROP
+        });
+    }
+
+    // Shows the map 
+    google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+
+
+</script>
+
+</head>
+
+<!--Header-->
+<body style="background-color:transparent; overflow-y:hidden">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" id="submenu" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse">Route Planner</button>
+          <button type="button" id="mainmenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Menu</button>
+          <a class="navbar-brand" href="Home_Page.htm"> ExpeditioNA <i class="fa fa-home"></i> </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="Route_Planner.html">Route Planner</a></li>
+            <li><a href="POI_and_Allergen_Info.htm">POI and Allergen Info</a></li>
+            <li><a href="Checklist.html">Checklist</a></li>
+            <li class="active"><a href="About_Us.html"></span>About Us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li id="contact"><a href = "#"><i class="fa fa-envelope-o"></i> Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="AboutUsTitle"> About Us
+        <p id="abExp" style="text-align:justify"><strong>ExpeditioNA</strong> aims to ease the stress of planning a road trip. Our innovative website is powered by elegant <strong>CSS styling, JavaScript, and jQuery</strong>. With our powerful website, traveling will never be the same again.
+        </p>
+    </div>
+
+<div id="googlemaps"></div>
+
+</div>
+
+<!-- Contact Modal -->
+      <div class="modal fade" id="myModalContact" role="dialog">
+        <div class="modal-dialog modal-lg" id="bScreenModal">
+          <div class="modal-content" id="infoItin">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" id="bModalTitle">Contact Us!&nbsp;<i class="fa fa-envelope-o"></i></i></h2>
+            </div>
+
+            <div class="modal-body" id="bModalText">
+
+              <p style="text-align:center">Tell us what you think about the website! Click one of our <strong>icons</strong> to send us an email!</p><br>
+
+              <div id="ic">
+                  <!--Icons for each collaborator and mail to each collaborator-->
+                  <div id="ic1">
+                    <a class="maillink"  href="mailto:joatienza@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;&nbsp;<i class="fa fa-cutlery fa-5x" id="contactIcon1"></i></a>
+                    
+                    </br>
+                    <h4 id="contactName">Josh Atienza</h4>
+                  </div>
+
+
+                  <div id="ic2">
+                    <a class="maillink"  href="mailto:joedralin@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;<i class="fa fa-trash fa-5x" id="contactIcon2"></i></a>
+                    </br>
+                    <h4 id="contactName">JP Edralin</h4>
+                  </div>
+
+                  <div id="ic3">
+                    <a class="maillink"  href="mailto:owzhang@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-map-marker fa-5x" id="contactIcon3"></i></a>
+                  </br><h4 id="contactname">Owen Zhang</h4>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+<script src="index.js"></script>
+
+</body>
+
+</html>

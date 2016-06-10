@@ -1,0 +1,139 @@
+<!-- The 4 files in this folder were for testing sliding motion and are now obsolete -->
+<html>
+
+<style>
+html,body {
+        width: 100%;
+        height: 100%;
+        position: relative; 
+}
+body {
+    overflow: hidden;
+}
+
+header {
+    background: #fff; 
+    position: fixed; 
+    left: 0; top: 0; 
+    width:100%;
+    height: 3.5rem;
+    z-index: 10; 
+}
+
+nav {
+    width: 100%;
+    padding-top: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    width: inherit; 
+    margin: 0; 
+}
+
+
+ul li:nth-child( 3n + 1), #main .panel:nth-child( 3n + 1) {
+    background: gray;
+}
+
+ul li:nth-child( 3n + 2), #main .panel:nth-child( 3n + 2) {
+    background: red;
+}
+
+ul li:nth-child( 3n + 3), #main .panel:nth-child( 3n + 3) {
+    background: green;
+}
+
+ul li {
+    display: inline-block; 
+    margin: 0 8px;
+    margin: 0 0.5rem;
+    padding: 5px 8px;
+    padding: 0.3rem 0.5rem;
+    border-radius: 2px; 
+    line-height: 1.5;
+}
+
+ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.panel {
+    width: 100%;
+    height: 100%;
+    z-index:0; 
+    -webkit-transform: translateZ( 0 );
+    transform: translateZ( 0 );
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+}
+
+.panel h1 {
+    font-family: sans-serif;
+    font-size: 64px;
+    font-size: 4rem;
+    color: #fff;
+    position:relative;
+    line-height: 200px;
+    top: 33%;
+    text-align: center;
+    margin: 0;
+}
+
+/*
+ *Scrolling
+ */
+
+a[ id= "HTHSTSA" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( 0px);
+    transform: translateY( 0px );
+}
+
+a[ id= "UASTechnology" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( -100% );
+    transform: translateY( -100% );
+}
+a[ id= "About" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( -200% );
+    transform: translateY( -200% );
+}
+</style>
+
+<body>
+<a id="HTHSTSA"></a>
+    <a id="UASTechnology"></a>
+    <a id="About"></a>
+    <header class="nav">
+        <nav>
+            <ul>
+                <li><a href="#HTHSTSA"> HTHS TSA </a> </li>
+                <li><a href="#UASTechnology"> UAS Technology </a> </li>
+                <li><a href="#About"> About </a> </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main">
+        <article class="panel" id="HTHSTSA">
+            <h1> HTHS specializes in STEM. </h1>
+        </article>
+
+        <article class="panel" id="UASTechnology">
+            <h1> Drones are beneficial. </h1>
+        </article>
+
+        <article class="panel" id="About">
+            <h1> We used JS, CSS, and HTML. </h1>
+        </article>
+    </section>
+
+
+</body>
+
+
+
+</html>

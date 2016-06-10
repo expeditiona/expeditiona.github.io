@@ -1,0 +1,426 @@
+<html>
+  <head>
+  <title>ExpeditioNA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="ctePics/lightbulbfav.ico" type="image/x-icon">
+  <link rel="icon" href="ctePics/lightbulbfav.ico" type="image/x-icon">
+  <link rel="stylesheet" href="homepage_looks.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+  <link rel="stylesheet" href="animate.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!--<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
+  <script src="homepage_slide.js"></script>
+
+<style>
+@import "compass/css3";
+input {
+    text-align: center;
+    border: none;
+    background: transparent;
+}
+th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+td {
+  
+    text-align: center;
+    vertical-align: middle;
+}
+
+.datepicker {
+  text-align: center;
+  width:158px;
+  height:34px;
+}
+.table-editable {
+  position: relative;
+  
+  .glyphicon {
+    font-size: 20px;
+  }
+}
+
+.table-remove {
+  color: #700;
+  cursor: pointer;
+  
+  &:hover {
+    color: #f00;
+  }
+}
+
+.table-up, .table-down {
+  color: #007;
+  cursor: pointer;
+  &:hover {
+    color: #00f;
+  }
+}
+.bootstrap-timepicker {
+            position: relative;
+        }
+        .bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu {
+            left: auto;
+            right: 0;
+        }
+        .bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu:before {
+            left: auto;
+            right: 12px;
+        }
+        .bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu:after {
+            left: auto;
+            right: 13px;
+        }
+        .bootstrap-timepicker .input-group-addon {
+            cursor: pointer;
+        }
+        .bootstrap-timepicker .input-group-addon i {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+        }
+        .bootstrap-timepicker-widget.dropdown-menu {
+            padding: 4px;
+        }
+        .bootstrap-timepicker-widget.dropdown-menu.open {
+            display: inline-block;
+        }
+        .bootstrap-timepicker-widget.dropdown-menu:before {
+            border-bottom: 7px solid rgba(0, 0, 0, 0.2);
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            content: "";
+            display: inline-block;
+            position: absolute;
+        }
+        .bootstrap-timepicker-widget.dropdown-menu:after {
+            border-bottom: 6px solid #FFFFFF;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            content: "";
+            display: inline-block;
+            position: absolute;
+        }
+        .bootstrap-timepicker-widget.timepicker-orient-left:before {
+            left: 6px;
+        }
+        .bootstrap-timepicker-widget.timepicker-orient-left:after {
+            left: 7px;
+        }
+        .bootstrap-timepicker-widget.timepicker-orient-right:before {
+            right: 6px;
+        }
+        .bootstrap-timepicker-widget.timepicker-orient-right:after {
+            right: 7px;
+        }
+        .bootstrap-timepicker-widget.timepicker-orient-top:before {
+            top: -7px;
+        }
+        .bootstrap-timepicker-widget.timepicker-orient-top:after {
+            top: -6px;
+        }
+        .bootstrap-timepicker-widget.timepicker-orient-bottom:before {
+            bottom: -7px;
+            border-bottom: 0;
+            border-top: 7px solid #999;
+        }
+        .bootstrap-timepicker-widget.timepicker-orient-bottom:after {
+            bottom: -6px;
+            border-bottom: 0;
+            border-top: 6px solid #ffffff;
+        }
+        .bootstrap-timepicker-widget a.btn,
+        .bootstrap-timepicker-widget input {
+            border-radius: 4px;
+        }
+        .bootstrap-timepicker-widget table {
+            width: 100%;
+            margin: 0;
+        }
+        .bootstrap-timepicker-widget table td {
+            text-align: center;
+           vertical-align:middle;
+            height: 30px;
+            margin: 0;
+            padding: 2px;
+        }
+        .bootstrap-timepicker-widget table td:not(.separator) {
+            min-width: 30px;
+        }
+        .bootstrap-timepicker-widget table td span {
+            width: 100%;
+        }
+        .bootstrap-timepicker-widget table td a {
+            border: 1px transparent solid;
+            width: 100%;
+            display: inline-block;
+            margin: 0;
+            padding: 8px 0;
+            outline: 0;
+            color: #333;
+        }
+        .bootstrap-timepicker-widget table td a:hover {
+            text-decoration: none;
+            background-color: #eee;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            border-color: #ddd;
+        }
+        .bootstrap-timepicker-widget table td a i {
+            margin-top: 2px;
+            font-size: 18px;
+        }
+        .bootstrap-timepicker-widget table td input {
+            width: 25px;
+            margin: 0;
+            text-align: center;
+        }
+        .bootstrap-timepicker-widget .modal-content {
+            padding: 4px;
+        }
+        @media (min-width: 767px) {
+            .bootstrap-timepicker-widget.modal {
+                width: 200px;
+                margin-left: -100px;
+            }
+        }
+        @media (max-width: 767px) {
+            .bootstrap-timepicker {
+                width: 100%;
+            }
+            .bootstrap-timepicker .dropdown-menu {
+                width: 100%;
+            }
+        }
+.table-add {
+  color: #070;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  
+  &:hover {
+    color: #0b0;
+  }
+  
+}
+</style>
+
+
+<script>
+
+
+var $TABLE = $('#table');
+var $BTN = $('#export-btn');
+var $EXPORT = $('#export');
+
+ $(function() {
+ $(".datepicker").timepicker({defaultTime:'16:20', minuteStep: 1, showMeridian: false,  icons: {
+                        up: 'fa fa-chevron-up',
+                        down: 'fa fa-chevron-down'
+                    }});
+    });
+$(function() {
+$('.time').click(function() {
+  $(this).find('.datepicker').focus();
+});
+});
+data = [
+            {
+            day: 'Monday',
+            amstart: "11:30",
+            amend: "12:30",
+            pmstart: "13:31",
+            pmend: "14:55",
+            schnote: "test note"
+            },
+        {
+            day: 'Tuesday',
+            amstart: "09:30",
+            amend: "11:21",
+            pmstart: "13:35",
+            pmend: "16:55",
+            schnote: "Tuesday bring an umbrella"}
+        ];
+       
+         drawTable(data);
+function drawTable(data) {
+ 
+    for (var i = 0; i < data.length; i++) {
+        drawRow(data[i],i);       
+    }
+}
+
+function drawRow(rowData,i) {
+    var row = $("<tr />"); 
+    $("#personDataTable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
+ 
+
+ row.append($('<td contenteditable="true"><select name="daySelected" class="form-control"  id='+rowData.day+'>                              <option value="Monday">Monday</option>                <option value="Tuesday">Tuesday</option>                <option value="Wednesday">Wednesday</option>                <option value="Thursday">Thursday</option>                <option value="Friday">Friday</option>                <option value="Saturday">Saturday</option>                <option value="Sunday">Sunday</option>            </select></td>')); 
+  $("#"+rowData.day).val(rowData.day);  
+  row.append($('<td contenteditable="true" class="time" ><input type="text" class="datepicker" value="'+rowData.amstart+'" type="text" /></td>'));
+  row.append($('<td contenteditable="true" class="time"><input type="text" class="datepicker" value="'+rowData.amend+'" type="text" /></td>'));
+  row.append($('<td contenteditable="true" class="time""><input type="text" class="datepicker" value="'+rowData.pmstart+'" type="text" /></td>'));
+  row.append($('<td contenteditable="true" class="time"><input type="text" class="datepicker" value="'+rowData.pmend+'" type="text" /></td>'));
+  row.append($('<td contenteditable="true">' + rowData.schnote + '</td>'));
+  row.append($('<td></td><td><span class="table-remove fa fa-trash fa-2x"></span></td><td></td><td><span class="table-up fa fa-chevron-circle-up fa-2x"></span><span class="table-down fa fa-chevron-circle-down fa-2x"></span></td></tr></table>'));
+}
+
+
+
+$('.table-add').click(function () {
+  var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
+  $clone.find("input.datepicker").each(function(){
+    $(this).attr("id", "").removeData().off();
+    $(this).find('.add-on').removeData().off();
+    $(this).find('input').removeData().off();
+    $(this).timepicker({defaultTime:'16:20', minuteStep: 1, showMeridian: false});
+  });
+
+  $TABLE.find('table').append($clone).find("input.datepicker").addClass('datepicker');
+  
+});
+
+$('.table-remove').click(function () {
+  $(this).parents('tr').detach();
+});
+
+$('.table-up').click(function () {
+  var $row = $(this).parents('tr');
+  if ($row.index() === 1) return; // Don't go above the header
+  $row.prev().before($row.get(0));
+});
+
+$('.table-down').click(function () {
+  var $row = $(this).parents('tr');
+  $row.next().after($row.get(0));
+});
+
+// A few jQuery helpers for exporting only
+jQuery.fn.pop = [].pop;
+jQuery.fn.shift = [].shift;
+
+$BTN.click(function () {
+  var $rows = $TABLE.find('tr:not(:hidden)');
+  var $tds = $TABLE.find('td:not(:hidden)');
+  var headers = [];
+  var data = [];
+
+  
+  // Get the headers (add special header logic here)
+  $($rows.shift()).find('th:not(:empty)').each(function () {
+    headers.push($(this).text().toLowerCase());
+  });
+  
+  // Turn all existing rows into a loopable array
+
+  $rows.each(function () {
+    var $td = $(this).find('td');
+    var $td2 = $td.find('input'); 
+    var $td3 = $td.find('select');
+    var h2 = {};  
+    // Use the headers from earlier to name our hash keys
+    headers.forEach(function (header, i) {
+
+      
+       h2[header] = $td.eq(i).find('input,select').val() || $td.eq(i).text();
+      console.log(h2[header]);
+
+    }); 
+//check if the day exists in json here
+    data.push(h2);
+  });
+  
+  // Output the result
+  $EXPORT.text(JSON.stringify(data));
+});
+  
+
+</script>
+</head>
+
+<body>
+<div class="">
+  
+  <h1>Horaire</h1>
+ 
+
+  
+  <div id="table" class="table-editable col-md-8 centered-vertically">
+    <span class="table-add fa fa-plus-circle fa-2x"></span>
+    
+    <table class="table" id="personDataTable">
+      <tr>
+        <th>Day</th>
+        <th>1st period start</th>
+        <th>1st period end</th>
+        <th>2nd period start</th>
+        <th>2nd period end</th>
+        <th>Special notes</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+       
+        <td contenteditable="true">Test day template</td>  
+        <td contenteditable="true" class="time"><input type="text" class="datepicker"/></td>
+        <td contenteditable="true" class="time" ><input type="text" class="datepicker"/></td>
+        <td contenteditable="true" class="time"><input type="text" class="datepicker"/></td>
+        <td contenteditable="true" class="time"><input type="text" class="datepicker"/></td>
+        <td contenteditable="true">Delete this </td>
+        <td></td>
+        <td>
+          <span class="table-remove fa fa-trash fa-2x"></span>
+        </td>
+        <td></td>
+        <td>
+          <span class="table-up fa fa-chevron-circle-up fa-2x"></span><span class="table-down fa fa-chevron-circle-down fa-2x"></span>
+        </td>
+      </tr>
+      
+      <!-- This is our clonable table line -->
+      <tr class="hide">
+        <td contenteditable="true">
+            <select name="daySelected" class="form-control" id="day">
+                <option value="pick">Pick a day</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+        
+</td>
+    <td contenteditable="true" class="time"><input type="text" class="datepicker" type="text" /></td>
+    <td contenteditable="true" class="time"><input type="text" class="datepicker " type="text" /></td>
+    <td contenteditable="true" class="time"><input type="text" class="datepicker" type="text" /></td>
+    <td contenteditable="true" class="time"><input type="text" class="datepicker" type="text" /></td>
+         <td contenteditable="true">Undefined note</td>
+  <td></td>
+
+        <td>
+          <span class="table-remove fa fa-trash fa-2x"></span>
+        </td>
+        <td></td>
+        <td>
+          <span class="table-up fa fa-chevron-circle-up fa-2x"></span><span class="table-down fa fa-chevron-circle-down fa-2x"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <button id="export-btn" class="btn btn-primary">Export Data</button>
+  <p id="export"></p>
+</div>
+
+</body>
+</html>

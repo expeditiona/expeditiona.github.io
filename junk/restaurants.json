@@ -1,0 +1,34 @@
+{
+  "restaurants": {
+    "mcdonalds": {
+      "name": "McDonald's"
+    },
+    "wendys": {
+      "name": "Wendy's"
+    },
+    "royrogers": {
+      "name": "Roy Roger's"
+    },
+    "burgerking": {
+      "name": "Burger King"
+    },
+    "applebees": {
+      "name": "Applebee's"
+    },
+    "fridays": {
+      "name": "TGI Friday's"
+    },
+    "pizzahut": {
+      "name": "Pizza Hut"
+    },
+    "redlobster": {
+      "name": "Red Lobster"
+    },
+    "auntieannes": {
+      "name": "Auntie Anne's"
+    },
+    "ihop": {
+      "name": "IHOP"
+    }
+  }
+}

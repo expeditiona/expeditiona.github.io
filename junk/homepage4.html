@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="design1.css">
+
+
+
+<!--Scrolling-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("a").click(function(){
+	$('html, body').animate({
+             scrollTop: $( $(this).attr('href') ).offset().top
+         }, 800);
+	return false;
+    });
+});
+</script>
+
+
+</head>
+<body>
+
+<div id="header" style="position:fixed">
+	<h1>
+    <a href='homepage4.html'>
+        <span class="expeditio">Expeditio</span>
+        <span class="NA">NA</span>
+    </a>
+    </h1>
+</div>
+
+<div id="selection" style="position:fixed">
+
+	<ul>
+        <li><a href="routeplanner1.html">Route Planner</a></li>
+		<li><a href="travelstops1.html">Travel Stops</a></li>
+		<li><a href="itinerary1.html">Itinerary</a></li>
+		<li><a href="aboutus1.html">About Us</a></li>
+	</ul>
+</div>
+
+
+
+
+<a name="RoutePlanner" id="RoutePlanner"></a>
+<div class="panel" style="background-color:#ADD8E6">
+    <div id="boxx">
+	Our innovative program allows you to view various routes and choose the quickest/shortest route to your destination :) !
+    </div>
+</div>
+
+<a name="TravelStops" id="TravelStops"></a>
+<div class="panel" style="background-color:#99FF00">
+    <div id="boxx">
+	Getting tired? Why don't take a break at the nearest rest stop, hotel, or even stop by the myriad of tourist attractions across the nation.
+    </div>
+</div>
+
+<a name="Itinerary" id="Itinerary"></a>
+<div class="panel" style="background-color:#ffb6c1">
+    <div id="boxx">
+    Can't remember what you searched? Keep notes and remember your history here. Receive notifications and emails about your trip...before, during, and after.
+    </div>
+</div>
+
+<a name="AboutUs" id="AboutUs"></a>
+<div class="panel" style="background-color:#ffd700">
+    <div id="boxx">
+        ExpeditioNA is your travel buddy. Google Maps? Who needs that? We provide you with a multitude of rest stops along your journey and provide you with the best route, including directions. We also have an allergy-filter than will give you food items and restaurants that will accomodate for any allergies in the family. Keep notes and preferences saved in our agenda pad. With ExpeditioNA, the paths are limitless.
+    </div>
+</div>
+
+<a href='#RoutePlanner' id="Route Planner" class="anchorLink">
+    <div class='circle' style='top:70px'> </div>
+</a>
+
+<a href="#TravelStops" id="Travel Stops" class="anchorLink">
+    <div class='circle' style='top:130px'> </div>
+</a>
+
+<a href="#Itinerary" id="Itineraryy" class="anchorLink">
+    <div class='circle' style='top:190px'> </div>
+</a>
+
+<a href="#AboutUs" id="About Us" class="anchorLink">
+    <div class='circle' style='top:250px'> </div>
+</a>
+
+</body>
+
+</html>

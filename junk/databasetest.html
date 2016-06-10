@@ -1,0 +1,76 @@
+<!-- <!DOCTYPE HTML>
+<html>
+
+<head>
+	<script type= "text/javascript">
+		var db = openDatabase('allergytest', 1.0, 'dbtest', 2*1024*1024);
+		var msg;
+
+		db.transaction(function (tx)){
+			tx.executeSql('SELECT * FROM Restaurant Info',[],function(tx,results){
+				var len = results.rows.length, i;
+				document.querySelector('#status').innerHTML += msg;
+				for (i = 0;i < len; i++){
+					msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+					document.querySelector('#status').innerHTML += msg
+				}
+			}, null);
+		});
+	</script>
+</head>
+
+<body>
+	<div id="status">Status Message</div>
+</body>
+
+</html>
+
+ -->
+<!DOCTYPE HTML>
+<html>
+
+   <head>
+	
+      <script type="text/javascript">
+		
+         var db = openDatabase('allergytest', '1.0', 'Test DB', 2 * 1024 * 1024);
+         var msg;
+			
+         db.transaction(function (tx) {
+            tx.executeSql('CREATE TABLE IF NOT EXISTS Restaurant_Info2 (id unique, log)');
+            tx.executeSql('INSERT INTO Restaurant_Info2 (id, log) VALUES (1, "Wendy\'s")');
+            tx.executeSql('INSERT INTO Restaurant_Info2 (id, log) VALUES (2, "Roy Rogers")');
+            tx.executeSql('INSERT INTO Restaurant_Info2 (id, log) VALUES (3, "Burger King")');
+            tx.executeSql('INSERT INTO Restaurant_Info2 (id, log) VALUES (4, "Applebee\'s")');
+            tx.executeSql('INSERT INTO Restaurant_Info2 (id, log) VALUES (5, "TGI Friday\'s")');
+            tx.executeSql('INSERT INTO Restaurant_Info2 (id, log) VALUES (6, "Pizza Hut")');
+            tx.executeSql('INSERT INTO Restaurant_Info2 (id, log) VALUES (7, "Red Lobster")');
+            tx.executeSql('INSERT INTO Restaurant_Info2 (id, log) VALUES (8, "McDonald\'s")');
+            tx.executeSql('INSERT INTO Restaurant_Info2 (id, log) VALUES (9, "Chili\'s")');
+            tx.executeSql('INSERT INTO Restaurant_Info2 (id, log) VALUES (10, "IHOP")');
+            msg = '<p>Log message created and row inserted!</p>';
+            document.querySelector('#status').innerHTML =  msg;
+         });
+
+         db.transaction(function (tx) {
+            tx.executeSql('SELECT * FROM Restaurant_Info2', [], function (tx, results) {
+               var len = results.rows.length, i;
+               msg = "<p>Found rows: " + len + "</p>";
+               document.querySelector('#status').innerHTML +=  msg;
+					
+               for (i = 0; i < len; i++){
+                  msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+                  document.querySelector('#status').innerHTML +=  msg;
+               }
+            }, null);
+         });
+			
+      </script>
+		
+   </head>
+	
+   <body>
+      <div id="status" name="status">Status Message</div>
+   </body>
+	
+</html>

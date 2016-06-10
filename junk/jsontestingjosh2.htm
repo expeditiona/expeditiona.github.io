@@ -1,0 +1,192 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Itinerary</title>
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'> 
+    <link rel="stylesheet" href="homepage_looks.css"> 
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
+	<link rel="stylesheet" href="design_placetestjp.css">
+
+	<script>
+
+/*	function stuff() {
+		var myFirebaseRef = new Firebase("https://crackling-inferno-9505.firebaseio.com/restaurants");
+
+		myFirebaseRef.on("child_added", function(snapshot, prevChildKey) {
+			var newPost = snapshot.val();
+			console.log("Name: " + newPost.name);
+				alert(newPost.name);
+			});
+	}
+*/
+	function stuff2() {
+		document.getElementById('outputgood').innerHTML = ""
+		document.getElementById('outputbad').innerHTML = ""
+		var storename = document.getElementById("storepicker").value;
+		var myFirebaseRefAllergen = new Firebase("https://crackling-inferno-9505.firebaseio.com/foods/" + storename);
+		//var storenamecap = document.getElementById("storepicker").label;
+		//console.log(storenamecap);
+		//console.log(storename);
+
+		myFirebaseRefAllergen.on("child_added", function(snapshot, prevChildKey) {
+			var newPost2 = snapshot.val();
+			var allergencheckarray = [];
+			for (i=0; i < 9; i++) {
+				var x = document.getElementsByName("allergencheck")[i]
+				if (x.checked == true) {
+					allergencheckarray.push(x.value)
+				}
+				else {}
+			}
+
+			var allergenarray = [newPost2.allergen1, newPost2.allergen2, newPost2.allergen3, newPost2.allergen4, newPost2.allergen5];
+			var check = true
+			for (i=0; i < 5; i++) {
+				for(y=0; y < allergencheckarray.length; y++) {
+					if (allergenarray[i] != allergencheckarray[y]) {	
+					}
+					else {
+						var check = false
+					}	
+				}	
+			}
+			if (check == true) {
+				console.log("Name: " + newPost2.name);
+				document.getElementById('outputgood').innerHTML += (newPost2.name + "<br />")
+			}
+			else {
+				document.getElementById('outputbad').innerHTML += (newPost2.name + "<br />")
+			}
+			// document.getElementById('storegood').innerHTML = ("Foods you can eat:")
+			// document.getElementById('storebad').innerHTML = ("Foods you cannot eat:")
+		});
+
+	}
+
+	//Show modal
+	$(window).load(function(){
+	    $('#myModal').modal('show');
+	});
+
+
+
+	</script>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" id="submenu" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse">Route Planner</button>
+          <button type="button" id="mainmenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Menu</button>
+          <a class="navbar-brand" href="landingpage321.htm"> ExpeditioNA <i class="fa fa-home"></i> </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="maptest.html">Route Planner</a></li>
+            <li><a href="placetest3.html">Travel Stops</a></li>
+            <li><a href="tableWORKINGBOI.html">Itinerary</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span>About Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top:80px">
+
+	    <!-- Sets buttons and input boxes for user -->
+	    <div id="locbtn">
+	        <input type="text" id="origin" placeholder="Origin" required />
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	        <input type="text" id="radius" placeholder="Search radius (miles)" required/>
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	        <select name="typedrop" id="typedrop">
+	          <option value="airport">Airports</option>
+	          <option value="atm">ATM</option>
+	          <option value="food">Food</option>
+	          <option value="gas_station">Gas stations</option>
+	          <option value="grocery_or_supermarket">Groceries or Supermarkets</option>
+	          <option value="hospital">Hospitals</option>
+	          <option value="lodging">Lodging</option>
+	          <option value="parking">Parking</option>
+	          <option value="restaurant">Restaurants</option>
+	          <option value="stores">Stores</option>
+	        </select>
+	        <button type="button" id="FindPlaces">Find Places</button>
+	    </div>
+
+	    <!-- Sets map to the right side, using GoogleMaps API -->
+	    <div id="map"></div>
+
+	    <!-- Includes the travel stops located by the GMaps API, this is an array -->
+	    <div id="placeList"></div>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog" style="top:10%">
+        <div class="modal-dialog modal-lg" id="bScreenModal">
+        
+          <!-- Modal Course Description content-->
+          <div class="modal-content" id="infoItin">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" id="bModalTitle">Welcome to our Allergy Service!&nbsp;<i class="fa fa-universal-access" aria-hidden="true"></i></h2>
+            </div>
+
+            <div class="modal-body" id="bModalText">
+				<select id="storepicker" name="storepicker">
+				  <option value="applebees" label="Applebee's">Applebee's</option>
+				  <option value="auntieannes" label="Auntie Anne's">Auntie Anne's</option>
+				  <option value="burgerking" label="Burger King">Burger King</option>
+				  <option value="fridays" label="Fridays">Fridays</option>
+				  <option value="ihop" label="IHOP">IHOP</option>
+				  <option value="mcdonalds" label="McDonald's">McDonald's</option>
+				  <option value="pizzahut" label="Pizza Hut">Pizza Hut</option>
+				  <option value="redlobster" label="Red Lobster">Red Lobster</option>
+				  <option value="royrogers" label="Roy Rogers">Roy Rogers</option>
+				  <option value="wendys" label="Wendy's">Wendy's</option>
+				</select>
+
+				<button type="button" onclick="stuff2()">Click</button>
+				
+			  	<!-- BUTTON TESTING -->
+			  	<form action="">
+					<input type="checkbox" name="allergencheck" value="wheat" >Wheat<br>
+					<input type="checkbox" name="allergencheck" value="soy" >Soy<br>
+					<input type="checkbox" name="allergencheck" value="eggs" >Eggs<br>
+					<input type="checkbox" name="allergencheck" value="gluten" >Gluten<br>
+					<input type="checkbox" name="allergencheck" value="shrimp" >Shrimp<br>
+					<input type="checkbox" name="allergencheck" value="shellfish" >Shellfish <br>
+					<input type="checkbox" name="allergencheck" value="fish" >Fish<br>
+					<input type="checkbox" name="allergencheck" value="nuts" >Nuts <br>
+					<input type="checkbox" name="allergencheck" value="dairy" >Dairy <br>
+				</form>
+				<p><strong>Foods you can eat:</strong></p>
+				<div id="outputgood">
+				</div>
+				<br>
+				<p><strong>Foods you cannot eat:</strong></p>
+				<div id="outputbad">
+				</div>
+				<br>
+            </div>
+          </div>
+        </div>
+      </div>
+	
+
+</body>
+
+
+
+</html>

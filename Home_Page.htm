@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+  <!-- stylesheets, jquery and bootstrap -->
+
+
+  <meta charset="UTF-8">
+  <title>ExpeditioNA - Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="index.js"></script>
+  
+  <link rel="stylesheet" href="design1.css">
+
+  <!-- <link rel="stylesheet" href="homepage_looks.css"> -->
+
+</head>
+
+
+<!--content-->
+<body>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="font-family:'Century Gothic'">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- header -->
+    <div class="navbar-header">
+      <button type="button" id="submenu" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse">Route Planner</button>
+      <button type="button" id="mainmenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Menu</button>
+      <a class="navbar-brand" href="Home_Page.htm"> ExpeditioNA <i class="fa fa-home"></i> </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="Route_Planner.html">Route Planner</a></li>
+        <li><a href="POI_and_Allergen_Info.htm">POI and Allergen Info</a></li>
+        <li><a href="Checklist.html">Checklist</a></li>
+        <li><a href="About_Us.html"></span>About Us</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="contact"><a href = "#" data-toggle="modal" data-target="#myModalContact"><i class="fa fa-envelope-o"></i> Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- main content of page (description and links) -->
+<div class="container-fluid" id="mainContainer">
+<div class="main" data-offset="15"> 
+
+  <div id="mainsectiontop">
+    
+    <div id="info" class="animated fadeInLeft">
+      <h2 id="welcome" class="animated lightSpeedIn">Welcome to ExpeditioNA!</h2>
+      <hr class="style14">
+      <br>
+      <p style="text-align:center">
+        With ExpeditioNA, planning your road trip will be easier than ever. Try our Route Planner, where you are able to map out a route to your destination. There is also our Points of Interest service, which allows you to find a multitude of different amenities relative to your location. Say your child has an allergy problem. We have the solution, as our Allergen Service will provide a list of safe foods from a variety of restaurants. Finally, there's the Checklist feature, where you can list all the road trip necessities you need to bring on your expedition.
+      </p>
+      <br>
+      <a id="letsgo" href="route_planner.html" style="text-decoration:none;margin-left:43%;font-size:60px;font-family:'Century Gothic'"><strong>Let's Go!</strong></a>
+    </div> 
+
+  </div>
+
+<!--   <div id="mainsectionbottom">
+
+    <a href="Route_Planner.html">
+      <div class="divSquare" id="square1">
+        <h2 id="choicePick">Route Planner</h2>
+      </div>
+    </a>  
+
+    <a href="POI_and_Allergen_Info.htm">
+      <div class="divSquare" id="square2">
+        <h2 id="choicePick">POI and Allergen Info</h2>
+      </div>
+    </a>
+
+    <div style='clear:both'></div>
+
+    <a href="Checklist.html">
+     <div class="divSquare" id="square3">
+       <h2 id="choicePick">Checklist</h2>
+      </div>
+    </a>
+    
+    <a href="About_Us.html">
+      <div class="divSquare" id="square4">
+        <h2 id="choicePick">About Us</h2>
+      </div>
+    </a>
+
+  </div> -->
+
+</div>
+
+
+</div>
+
+<!-- Contact Modal -->
+      <div class="modal fade" id="myModalContact" role="dialog">
+        <div class="modal-dialog modal-lg" id="bScreenModal">
+          <div class="modal-content" id="infoItin">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" id="bModalTitle">Contact Us!&nbsp;<i class="fa fa-envelope-o"></i></i></h2>
+            </div>
+
+            <div class="modal-body" id="bModalText">
+
+              <p style="text-align:center">Tell us what you think about the website! Click one of our <strong>icons</strong> to send us an email!</p><br>
+
+              <div id="ic">
+                  <!--Icons for each collaborator and mail to each collaborator-->
+                  <div id="ic1">
+                    <a class="maillink"  href="mailto:joatienza@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;&nbsp;<i class="fa fa-cutlery fa-5x" id="contactIcon1"></i></a>
+                    
+                    </br>
+                    <h4 id="contactName">Josh Atienza</h4>
+                  </div>
+
+
+                  <div id="ic2">
+                    <a class="maillink"  href="mailto:joedralin@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;<i class="fa fa-trash fa-5x" id="contactIcon2"></i></a>
+                    </br>
+                    <h4 id="contactName">JP Edralin</h4>
+                  </div>
+
+                  <div id="ic3">
+                    <a class="maillink"  href="mailto:owzhang@ctemc.org?Subject=Feedback" target="_blank">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-map-marker fa-5x" id="contactIcon3"></i></a>
+                  </br><h4 id="contactname">Owen Zhang</h4>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>

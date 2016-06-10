@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Travel Stops</title>
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="homepage_looks.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Refer to GoogleMaps API service -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7OXa-HwyjlSJKa89x0yyXbxSn1EfTCEQ&libraries=places"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="placetest.js"></script>
+  </head>
+
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" id="submenu" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse">Route Planner</button>
+          <button type="button" id="mainmenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Menu</button>
+          <a class="navbar-brand" href="landingpage321.htm"> ExpeditioNA <i class="fa fa-home"></i> </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="maptest.html">Route Planner</a></li>
+            <li><a href="placetest3.html">Travel Stops</a></li>
+            <li><a href="tableWORKINGBOI.html">Itinerary</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span>About Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sets buttons and input boxes for user -->
+    <div id="locbtn">
+        <input type="text" id="origin" placeholder="Origin" required />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" id="radius" placeholder="Search radius (miles)" required/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="typedrop">
+          <option value="airport">Airports</option>
+          <option value="atm">ATM</option>
+          <option value="food">Food</option>
+          <option value="gas_station">Gas stations</option>
+          <option value="grocery_or_supermarket">Groceries or Supermarkets</option>
+          <option value="hospital">Hospitals</option>
+          <option value="lodging">Lodging</option>
+          <option value="parking">Parking</option>
+          <option value="restaurant">Restaurants</option>
+          <option value="stores">Stores</option>
+        </select>
+        <button type="button" id="FindPlaces">Find Places</button>
+    </div>
+
+    <!-- Sets map to the right side, using GoogleMaps API -->
+    <div id="map"></div>
+
+    <!-- Includes the travel stops located by the GMaps API, this is an array -->
+    <div id="placeList"></div>
+
+  </body>
+
+</html>

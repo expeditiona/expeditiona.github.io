@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html >
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Itinerary</title>
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="homepage_looks.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" id="submenu" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse">Route Planner</button>
+          <button type="button" id="mainmenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Menu</button>
+          <a class="navbar-brand" href="landingpage321.htm"> ExpeditioNA <i class="fa fa-home"></i> </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="maptest.html">Route Planner</a></li>
+            <li><a href="placetest3.html">Travel Stops</a></li>
+            <li><a href="tableWORKINGBOI.html">Itinerary</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span>About Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top:50px">
+  
+      <div id="table" class="table-editable">
+        <span class="table-add glyphicon glyphicon-plus"></span>
+        <table class="table" id="itinTable">
+          <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td contenteditable="true">Insert</td>
+            <td contenteditable="true">Insert</td>
+            <td>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </td>
+            <td>
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+            </td>
+          </tr>
+          <!-- This is our clonable table line -->
+          <tr class="hide">
+            <td contenteditable="true">Insert</td>
+            <td contenteditable="true">Insert</td>
+            <td>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </td>
+            <td>
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/jszip.min.js"></script>
+
+<button id="exportButton" class="btn btn-lg btn-danger clearfix"><span class="fa fa-file-pdf-o"></span> Export to PDF</button>
+
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#exportButton").click(function () {
+                // parse the HTML table element having an id=exportTable
+                var dataSource = shield.DataSource.create({
+                    data: "#itinTable",
+                    schema: {
+                        type: "table",
+                        fields: {
+                            Item: { type: String },
+                            Quantity: { type: Number }
+                        }
+                    }
+                });
+
+                // when parsing is done, export the data to PDF
+                dataSource.read().then(function (data) {
+                    var pdf = new shield.exp.PDFDocument({
+                        author: "ExpeditioNA",
+                        created: new Date()
+                    });
+
+                    pdf.addPage("a4", "portrait");
+
+                    pdf.table(
+                        50,
+                        50,
+                        data,
+                        [
+                            { field: "Item", title: "Item", width: 300 },
+                            { field: "Quantity", title: "Quantity", width: 50 },
+
+                        ],
+                        {
+                            margins: {
+                                top: 50,
+                                left: 50
+                            }
+                        }
+                    );
+
+                    pdf.saveAs({
+                        fileName: "PrepBootstrapPDF"
+                    });
+                });
+            });
+        });
+    </script>
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg" id="bScreenModal">
+        
+          <!-- Modal Course Description content-->
+          <div class="modal-content" id="infoItin">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" id="bModalTitle">Welcome to our CheckList service!&nbsp;<i class="fa fa-clipboard" aria-hidden="true"></i></h2>
+            </div>
+
+            <div class="modal-body" id="bModalText">
+              <p>Using our checklist, you'll never forget your vacation essentials. Toothbrushes, soap, socks...everything. We also allow you to download your checklist and print them out. No problem at all!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+    <script src='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js'></script>
+
+    <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>

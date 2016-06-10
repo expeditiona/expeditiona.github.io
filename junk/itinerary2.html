@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ExpeditioNA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="ctePics/lightbulbfav.ico" type="image/x-icon">
+  <link rel="icon" href="ctePics/lightbulbfav.ico" type="image/x-icon">
+  <link rel="stylesheet" href="homepage_looks.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="homepage_slide.js"></script>
+</head>
+
+
+<body>
+
+
+<!-- <h1 id="titleItinerary">Plan Your Errands on Our Itinerary Feature!</h1> -->
+
+<div class="container">
+  <h1>HTML5 Editable Table</h1>
+  <p>Through the powers of <strong>contenteditable</strong> and some simple jQuery you can easily create a custom editable table. No need for a robust JavaScript library anymore these days.</p>
+  
+  <ul>
+    <li>An editable table that exports a hash array. Dynamically compiles rows from headers</li> 
+    <li>Simple / powerful features such as add row, remove row, move row up/down.</li>
+  </ul>
+  
+  <div id="table" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td contenteditable="true">Stir Fry</td>
+        <td contenteditable="true">stir-fry</td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+        <td>
+          <span class="table-up glyphicon glyphicon-arrow-up"></span>
+          <span class="table-down glyphicon glyphicon-arrow-down"></span>
+        </td>
+      </tr>
+      <!-- This is our clonable table line -->
+      <tr class="hide">
+        <td contenteditable="true">Untitled</td>
+        <td contenteditable="true">undefined</td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+        <td>
+          <span class="table-up glyphicon glyphicon-arrow-up"></span>
+          <span class="table-down glyphicon glyphicon-arrow-down"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <button id="export-btn" class="btn btn-primary">Export Data</button>
+  <p id="export"></p>
+</div>
+
+</body>
+
+</html>
